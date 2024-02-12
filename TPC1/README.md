@@ -21,7 +21,7 @@
 - #### Listagem das Modalidades Desportivas:
     - A função "listar_modalidades" extrai todas as modalidades distintas dos objetos Pessoa, ordena-as alfabeticamente utilizando o método sorted e imprime-as. Isto é feito ao criar um conjunto para garantir a unicidade e em seguida, converter esse conjunto numa lista ordenada.
 - #### Cálculo das Percentagens de Atletas Aptos e Inaptos:
-    - A função "percentagem_aptidao" calcula a percentagem de atletas aptos e inaptos usando uma compreensão de lista para somar todos os atletas com resultado igual a "apto". A percentagem de inaptos é calculada subtraindo a porcentagem de aptos de 100%.
+    - A função "percentagem_aptidao" calcula a percentagem de atletas aptos e inaptos usando uma compreensão de lista para somar todos os atletas com resultado igual a "true". A percentagem de inaptos é calculada subtraindo a porcentagem de aptos de 100%.
 - #### Distribuição de Atletas por Escalão Etário:
     - Utiliza a função "distribuicao_por_idade" e a classe "Counter" para contar quantos atletas caem em cada escalão etário, definido em intervalos de 5 anos. Isto é feito calculando a idade base do escalão (arredondando para baixo para o múltiplo de 5 mais próximo) para cada atleta e, em seguida, contando quantas vezes cada escalão ocorre.
 - #### Interface de Menu Interativa:
