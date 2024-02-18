@@ -24,4 +24,4 @@ Uma peça chave na conversão de Markdown para HTML é o re.sub, uma técnica ch
 
 **Regras Horizontais**: Converte linhas horizontais em Markdown (---) para HTML, utilizando re.sub.
 
-**Parágrafos**: Identifica linhas que não correspondem a outros padrões Markdown e envolve-as em tags de parágrafo "<p>", utilizando re.sub com uma expressão regular negativa para excluir linhas que já foram convertidas em outros elementos HTML.
+**Parágrafos**: Identifica linhas que não correspondem a outros padrões Markdown e envolve-as em tags de parágrafo, utilizando re.sub com uma expressão regular negativa para excluir linhas que já foram convertidas em outros elementos HTML.
