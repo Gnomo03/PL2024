@@ -10,7 +10,7 @@
 ### Parágrafos
 Uma peça chave na conversão de Markdown para HTML é o re.sub, uma técnica chave para realizar substituições de texto baseadas em padrões definidos por expressões regulares. Aqui está um resumo de como *re.sub* é utilizado:
 
-**Cabeçalhos**: A função re.sub é usada para encontrar padrões de cabeçalhos Markdown (indicados por cardinais) e substituí-los pelas respectivas tags de cabeçalho HTML (<h1>, <h2>, <h3>, etc.).
+**Cabeçalhos**: A função re.sub é usada para encontrar padrões de cabeçalhos Markdown (indicados por cardinais) e substituí-los pelas respectivas tags de cabeçalho HTML.
 
 **Ênfases**: Transforma texto em negrito e itálico de Markdown para as suas tags HTML equivalentes utilizando re.sub.
 
@@ -20,8 +20,8 @@ Uma peça chave na conversão de Markdown para HTML é o re.sub, uma técnica ch
 
 **Código**: Usa re.sub para converter texto entre crases (indicando código inline em Markdown) para a tag <code> em HTML. A opção flags=re.DOTALL permite que o padrão corresponda a linhas múltiplas, se necessário.
 
-**Blockquotes**: Substitui citações em Markdown (> citação) por <blockquote> em HTML, utilizando re.sub com uma expressão regular que identifica o padrão de citação.
+**Blockquotes**: Substitui citações em Markdown (> citação) por "<blockquote>" em HTML, utilizando re.sub com uma expressão regular que identifica o padrão de citação.
 
-**Regras Horizontais**: Converte linhas horizontais em Markdown (---) para a tag <hr> em HTML, utilizando re.sub.
+**Regras Horizontais**: Converte linhas horizontais em Markdown "(---)" para a tag <hr> em HTML, utilizando re.sub.
 
 **Parágrafos**: Identifica linhas que não correspondem a outros padrões Markdown e envolve-as em tags de parágrafo <p>, utilizando re.sub com uma expressão regular negativa para excluir linhas que já foram convertidas em outros elementos HTML.
