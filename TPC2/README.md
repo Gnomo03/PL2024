@@ -14,7 +14,7 @@ Uma peça chave na conversão de Markdown para HTML é o re.sub, uma técnica ch
 
 **Ênfases**: Transforma texto em negrito e itálico de Markdown para as suas tags HTML equivalentes utilizando re.sub.
 
-**Links**: Converte links em Markdown ([texto](url)) para a forma HTML (<a href="url">texto</a>) utilizando re.sub.
+**Links**: Converte links em Markdown para a forma HTML (<a href="url">texto</a>) utilizando re.sub.
 
 **Listas**: Apesar do script usar um loop e re.match para identificar itens de lista, ele ainda usa re.sub dentro desse contexto para substituir a sintaxe de itens de lista por tags HTML.
 
