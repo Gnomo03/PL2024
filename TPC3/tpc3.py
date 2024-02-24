@@ -2,24 +2,26 @@ import re
 
 def somar_numeros(texto):
     soma = 0
-    # num_read = 0
-    continuar = False
+    continuar = True  # Inicia com a soma ativada
 
-    for palavra in texto.split():
-        if palavra.lower() == "on":
+    # Processa cada segmento do texto
+    for segmento in re.finditer(r'\d+|[a-zA-Z]+|=', texto):
+        texto_segmento = segmento.group()
+
+        # Verifica se o segmento contém 'on' ou 'off'
+        if 'on' in texto_segmento.lower():
             continuar = True
-        elif palavra.lower() == "off":
+        elif 'off' in texto_segmento.lower():
             continuar = False
-        elif palavra == "=":
-            #if continuar or soma > 0: 
+
+        # Se estiver somando, adiciona qualquer número encontrado ao total
+        if continuar and texto_segmento.isdigit():
+            soma += int(texto_segmento)
+
+        # Ao encontrar '=', imprime a soma atual e a reseta
+        if texto_segmento == '=':
             print(soma)
-            # print(str(num_read) + " Números lidos")
-        elif continuar:
-            numeros = re.findall(r'\b\d+\b', palavra)
-            soma += sum(map(int, numeros))
-            # num_read += 1
 
 # Exemplo de uso
-texto = "oN 1 + 2 = 3 oFf 45 99 ON 7 + 3 = OfF 10 = 16"
+texto = "Ontem fez um fr10 = á 12 an05 atroff ="
 somar_numeros(texto)
- 
