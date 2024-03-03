@@ -1,2 +1,6 @@
 TPC2/tpc2.html
 TPC2/README.md
+TPC3/FiniteStateAutomaton.py
+.gitignore
+TPC3/afd.py
+TPC3/tpc3.py
