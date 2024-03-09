@@ -1,27 +1,19 @@
-## TPC5: Vending Machine
+## TPC4: Analisador Léxico
 
 ### Autor
 - Nome: David da Silva Teixeira
 - ID: A100554
 
 ### Requisitos
-- Criar um analisador léxico de uma máquina de vendas que aceite os seguintes tokens: MOEDA, LISTAR, SELECIONAR, SAIR
-- Ao detetar o token MOEDA, o programa lê os próximos argumentos e adiciona-os ao saldo do utilizador, por exemplo: "MOEDA 1e,20c" daria Saldo = 1e20c (1 euro e 20 cêntimos)
-- Ao detetar o token LISTAR, o programa lista o id, nome e preço de todos os produtos associados á máquina
-- Ao detetar o token SELECIONAR o programa lê o próximo argumento (que deve ser um número) e seleciona o produto com esse id, retirando o preço ao saldo do utilizador
-- Ao detetar o token SAIR o programa termina, imprimindo o troco
+- Construit um analisador léxico para: SELECT id,nome,salario from empregado where salario >= 820
 
 ### Parágrafos
-**Definição de Tokens**: Os tokens MOEDA, LISTAR, SELECIONAR e SAIR representam as ações que o utilizador pode realizar. Estes são identificados por expressões regulares específicas, que permitem ao analisador léxico reconhecer os comandos de entrada.
+**Definição de Tokens**: Uma lista de padrões de tokens (token_patterns) é definida para capturar os diferentes elementos de uma consulta SQL. Cada padrão consiste numa expressão regular e um tipo de token associado. Os tipos incluem KEYWORD para palavras-chave SQL (SELECT, FROM, WHERE), IDENTIFIER para identificadores (como nomes de colunas e tabelas), OPERATOR para operadores (como >=), NUMBER para números e COMMA para vírgulas.
 
-**Manipulação do Saldo**: A função t_MOEDA atualiza o saldo global com base nas moedas inseridas. As moedas podem ser especificadas em euros (e) e centimos (c), e o saldo é mantido em centimos para simplificar os cálculos.
+**Ignorar Espaços em Branco e Comentários**: Os padrões também incluem regras para ignorar espaços em branco e comentários (que começam com --), que não contribuem para a estrutura semântica da consulta.
 
-**Listagem de Produtos**: A função t_LISTAR itera sobre a lista global de produtos, exibindo cada um com seu preço. Os produtos são carregados a partir de um arquivo JSON, o que facilita a modificação e adição de novos itens sem alterar o código.
+**Processamento dos Tokens**: A função lex é o coração do analisador léxico. Ela recebe uma string de entrada (a consulta SQL), e itera sobre ela utilizando as expressões regulares definidas para identificar tokens. Quando um token é identificado, ele é adicionado a uma lista de tokens, incluindo o texto do token e seu tipo.
 
-**Seleção de Produtos**: t_SELECIONAR permite ao utilizador escolher um produto pelo seu índice na lista. Verifica se o saldo é suficiente e, em caso afirmativo, deduz o preço do saldo e informa o usuário da compra bem-sucedida.
+**Gestão de Erros**: Se um caractere não corresponde a nenhum dos padrões definidos, o programa considera isso um erro, exibe uma mensagem de erro indicando o caractere inválido e termina a execução.
 
-**Saída e Troco**: t_SAIR exibe o troco devido ao utilizador e encerra o programa. O troco é calculado com base no saldo restante.
-
-**Gestão de Erros**: A função t_ANY_error lida com caracteres inválidos, informando o usuário e ignorando o caractere problemático.
-
-**Estrutura de Loop Principal**: O programa executa em um loop infinito, lendo comandos do utilizador até que o comando SAIR seja recebido.
+**Teste com Consulta SQL**: O programa inclui uma consulta SQL de exemplo (input_string) que é convertida para maiúsculas (para garantir a correspondência com as palavras-chave definidas) e passada para a função lex. Isso demonstra como a string de entrada é analisada em tokens.
