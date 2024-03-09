@@ -1,4 +1,4 @@
-## TPC2: Somador on/off
+## TPC3: Somador on/off
 
 ### Autor
 - Nome: David da Silva Teixeira
