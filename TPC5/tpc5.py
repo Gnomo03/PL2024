@@ -20,11 +20,13 @@ def t_MOEDA(t):
             saldo += valor
     print(f"Saldo = {saldo // 100}e{saldo % 100}c")
 
-
 def t_LISTAR(t):
     r'LISTAR'
     for i, produto in enumerate(produtos, start=1):
-        print(f"{i} - {produto['nome']} - {produto['preco']}c")
+        euros = produto['preco'] // 100
+        centimos = produto['preco'] % 100
+        print(f"{i} - {produto['nome']} - {euros}e{centimos:02d}c - Quantidade: {produto['quantidade']}")
+
 
 def t_SELECIONAR(t):
     r'SELECIONAR\s+(\d+)'
@@ -32,11 +34,15 @@ def t_SELECIONAR(t):
     produto_id = int(t.value.split()[1]) - 1
     if 0 <= produto_id < len(produtos):
         produto = produtos[produto_id]
-        if saldo >= produto['preco']:
-            saldo -= produto['preco']
-            print(f"Selecionou {produto['nome']}, saldo = {saldo // 100}e{saldo % 100}c")
+        if produto['quantidade'] > 0:
+            if saldo >= produto['preco']:
+                saldo -= produto['preco']
+                produto['quantidade'] -= 1
+                print(f"Selecionou {produto['nome']}, saldo = {saldo // 100}e{saldo % 100}c, Restam {produto['quantidade']} unidades.")
+            else:
+                print("Saldo insuficiente.")
         else:
-            print("Saldo insuficiente.")
+            print(f"{produto['nome']} esgotado.")
     else:
         print("Produto inválido.")
 
