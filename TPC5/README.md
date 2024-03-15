@@ -16,9 +16,9 @@
 
 **Manipulação do Saldo**: A função t_MOEDA atualiza o saldo global com base nas moedas inseridas. As moedas podem ser especificadas em euros (e) e centimos (c), e o saldo é mantido em centimos para simplificar os cálculos.
 
-**Listagem de Produtos**: A função t_LISTAR itera sobre a lista global de produtos, exibindo cada um com seu preço. Os produtos são carregados a partir de um arquivo JSON, o que facilita a modificação e adição de novos itens sem alterar o código.
+**Listagem de Produtos**: A função t_LISTAR itera sobre a lista global de produtos, exibindo cada um com seu preço e quantidade. Os produtos são carregados a partir de um arquivo JSON, o que facilita a modificação e adição de novos itens sem alterar o código.
 
-**Seleção de Produtos**: t_SELECIONAR permite ao utilizador escolher um produto pelo seu índice na lista. Verifica se o saldo é suficiente e, em caso afirmativo, deduz o preço do saldo e informa o usuário da compra bem-sucedida.
+**Seleção de Produtos**: t_SELECIONAR permite ao utilizador escolher um produto pelo seu índice na lista. Verifica se o saldo é suficiente e, em caso afirmativo, deduz o preço do saldo e informa o usuário da compra bem-sucedida e quantidades restantes.
 
 **Saída e Troco**: t_SAIR exibe o troco devido ao utilizador e encerra o programa. O troco é calculado com base no saldo restante.
 
